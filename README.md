@@ -78,10 +78,31 @@ The code's structure emphasizes clarity and efficiency by defining each componen
 ### Filtering and Sorting Results
 - Retains columns (`best_match_score`, `brand_name`, `NAME OF COMPANY`) and sorts by `best_match_score` for easy analysis.
 
+## Example Output
+
+The output includes `best_match_score`, `brand_name`, and `NAME OF COMPANY`, with high scores signifying strong matches. This setup is effective for use cases like:
+
+- **Data Deduplication:** Identifying and merging near-duplicate entries to maintain clean data.
+- **Record Linkage:** Linking records across different datasets based on approximate matching.
+- **Standardizing Entries:** Ensuring consistency across datasets with slight variations in naming conventions.
+
+A sample output might look like this:
+
+| best_match_score | brand_name      | NAME OF COMPANY                   |
+|------------------|-----------------|-----------------------------------|
+| 0.95             | Example Brand A | Example Company A                 |
+| 0.89             | Sample Brand B  | Sample Company B                  |
+| 0.85             | Demo Brand C    | Demonstration Company C           |
+
+In this table:
+- **High `best_match_score` values** (close to 1) indicate stronger matches.
+- **Lower scores** may indicate weaker matches or potential mismatches, depending on the threshold you choose.
+
 ## Usage Instructions
 
 ### Installation
 Ensure `pandas` and `fuzzymatcher` are installed:
 ```bash
 pip install pandas fuzzymatcher
+
 
